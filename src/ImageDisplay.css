@@ -1,0 +1,276 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #00001a, #2a6093);
+  gap: 120px;
+  position: relative;
+}
+
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  width: 120px; /* Small initial size */
+  height: 120px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s, width 0.6s, height 0.6s;
+  border-radius: 20px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card.expanded {
+  width: 400px; /* Expand when flipped */
+  height: 600px;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  gap: 15px;
+  overflow-y: auto;
+}
+
+.icon-style {
+  font-size: 60px; /* Larger icon size */
+}
+
+/* Lawyer card color */
+.lawyer-card {
+  background-color: #00001a; /* Dark blue for lawyer card */
+}
+
+/* User card remains light */
+.user-card {
+  background-color: #e6e6e6;
+}
+
+/* Lawyer icon color */
+.lawyer-icon {
+  color: #ffffff; /* White icon for contrast */
+}
+
+/* User icon remains dark */
+.user-icon {
+  color: #000000;
+}
+
+.icon-style {
+  font-size: 50px; /* Smaller icon size */
+}
+
+.dark {
+  background-color: #e6e6e6;
+}
+
+.light {
+  background-color: #e6e6e6;
+}
+
+.label {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.signup-form h2 {
+  font-size: 24px;
+  color: #000000;
+  margin-bottom: 20px;
+  font-weight: bold;
+  box-shadow: #000000;
+}
+
+.signup-form input,
+.signup-form select {
+  width: 90%; 
+  padding: 14px 16px; 
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  margin-bottom: 5px;
+  background-color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.signup-form input:focus,
+.signup-form select:focus {
+  outline: none;
+  border-color: #00001a;
+}
+
+.signup-form input::placeholder {
+  color: #666;
+}
+
+.signup-form select {
+  width: 90%;
+  appearance: none; /* Standard syntax */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) center;
+  padding-right: 40px; /* Space for the arrow */
+  
+}
+
+
+.signup-form button {
+  width: 90%;
+  padding: 16px;
+  background: #00001a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.signup-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.signup-form button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    gap: 60px;
+    padding: 10px;
+  }
+
+  .card.expanded {
+    width: 340px;
+  }
+
+  .signup-form input,
+  .signup-form select,
+  .signup-form button {
+    width: 95%;
+  }
+}
+
+.lawyer-form .form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.expertise-checkboxes {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: white;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.checkbox-item label {
+  margin: 0 !important;
+  font-weight: normal;
+  color: #666 !important;
+  cursor: pointer;
+}
+
+.lawyer-form.signup-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) center;
+  padding-right: 40px;
+}
+
+/* Adjust scrollbar for expertise checkboxes */
+.expertise-checkboxes::-webkit-scrollbar {
+  width: 8px;
+}
+
+.expertise-checkboxes::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.expertise-checkboxes::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.expertise-checkboxes::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Media query adjustments */
+@media (max-width: 768px) {
+  .lawyer-form .name-inputs,
+  .lawyer-form.signup-form input:not([type="checkbox"]),
+  .lawyer-form.signup-form select,
+  .expertise-checkboxes {
+    width: 95%;
+  }
+}
